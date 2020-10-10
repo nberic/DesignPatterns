@@ -18,7 +18,7 @@ namespace StrategyPattern
             gandalf.Attack();
 
             // Attack as warrior
-            gandalf.AttackingService = warriorAttackingService;
+            gandalf.ChangeWeapon(warriorAttackingService);
             gandalf.Attack();
         }
     }

@@ -7,28 +7,20 @@ namespace StrategyPattern.Characters
     {
         private IAttackingService _attackingService;
 
-        public IAttackingService AttackingService
-        {
-            get
-            {
-                return _attackingService;
-            }
-
-            set
-            {
-                Console.WriteLine("Changing weapon!");
-                _attackingService = value;
-            }
-        }
-
         public Character(IAttackingService AttackingService)
         {
             _attackingService = AttackingService;
         }
 
-        public void Attack()
+        public virtual void Attack()
         {
-            AttackingService.Attack();
+            _attackingService.Attack();
+        }
+
+        public virtual void ChangeWeapon(IAttackingService attackingService)
+        {
+            Console.WriteLine("Changing weapon!");
+            _attackingService = attackingService;
         }
 
         public abstract void Display();
